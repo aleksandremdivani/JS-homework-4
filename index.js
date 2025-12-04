@@ -18,7 +18,28 @@ const renderList = () => {
     food.appendChild(xBtn);
     foodList.appendChild(food);
   });
+  return foodList;
 };
-renderList();
+  const renderListFunction = renderList();
 
-
+const products = [
+  { name: "Laptop", price: 2500 },
+  { name: "Mouse", price: 50 },
+  { name: "Keyboard", price: 150 },
+  { name: "Monitor", price: 900 }
+];
+const productsDiv = document.body.querySelector("#products");
+const cards = products.map((element) => {
+  const product = document.createElement("div");
+  product.className = "card";
+  const title = document.createElement("h3");
+  title.textContent = element.name;
+  const price = document.createElement("p");
+  price.textContent = "Price:" + element.price + "$";
+  product.appendChild(title);
+  product.appendChild(price);
+  return product;
+});
+cards.forEach((product) => {
+  productsDiv.appendChild(product);
+})
